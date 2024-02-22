@@ -8,6 +8,7 @@ import Discover from './Components/Discover/Discover';
 import Faq from './Components/Faq/Faq';
 import About from './Components/About/About';
 import Researchers from './Components/Researcher/Researchers';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
     <Route path='/register' element={<Regsiter/>}/>
     <Route path='/researchers' element={<Researchers/>}/>
     </Routes>
+    <Footer/>
     </div>
   );
 }

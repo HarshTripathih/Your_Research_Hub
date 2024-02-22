@@ -2,6 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
+    <>
     <div className='m-10'>
       <section class="text-gray-600 body-font overflow-hidden">
         <div class="container px-5 py-24 mx-auto">
@@ -141,6 +142,7 @@ const About = () => {
         </div>
       </section>
     </div>
+    </>
   )
 }
 export default About
