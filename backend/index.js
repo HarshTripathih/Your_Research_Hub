@@ -1,20 +1,39 @@
-const app = require("express")();
-const http = require("http").Server(app);
-const mongoose = require("mongoose");
+// const express = require('express')
+// const colors = require('colors')
 
+import express from "express";
+import colors from "colors";
+import dotenv from "dotenv";
+import morgan from "morgan";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoute.js";
+// import cors from 'cors';
 
-mongoose.connect("mongodb+srv://harshtripathih321:1Ha2Rs3H%40123@yourresearchhub.trivshi.mongodb.net/");
+dotenv.config();
 
-const user = require('./models/userModel');
+// database connection
+connectDB();
 
-async function insert() {
-    await user.create({
-        name: "Harsh",
-        email: "harshtripathih321@gmail.com"
-    });
-}
-insert();
+const app = express()
 
-http.listen(3001, function () {
-    console.log('server is running at port 3001')
-});
+// middleware
+
+// app.use(cors());
+app.use(express.json());
+app.use(morgan('dev'));
+
+// routes
+
+app.use('/api/v1/auth', authRoutes)
+
+// api
+
+app.get('/', (req, res) => {
+      res.send("<h1>Welcome to our app</h1>")
+})
+
+const PORT = process.env.PORT || 8000; 
+
+app.listen(PORT, () => {
+    console.log(`Server Running on ${PORT}`.bgCyan.white)
+})
