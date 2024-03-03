@@ -160,4 +160,4 @@ const ResearcherSearchSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model('ResearcherModel', ResearcherSearchSchema);
+export default mongoose.model('Researchers', ResearcherSearchSchema);

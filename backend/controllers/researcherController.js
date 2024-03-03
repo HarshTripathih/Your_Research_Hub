@@ -1,29 +1,31 @@
-import ResearcherModel from '../models/researcherModel';
+import researchers from "../models/researcherModel.js";
 
 
-const getAllData = async (req, res) => {
+export const getAllData = async (req, res) => {
   try {
-    const data = await ResearcherModel.find({});
+    const data = await researchers.find({});
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-const createData = async (req, res) => {
-  const data = new ResearcherModel(req.body);
 
-  try {
-    const newData = await data.save();
-    res.status(201).json(newData);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+//Create a new data 
+export const createData = async (req,res) => {
+  try{
+      const createData = await researchers.create(req.body);
+      res.status(201).send(createData);
+      console.log("Body",createData);
+
+  }catch(err){
+      res.status(500).send({message : "Error in creating the data " , error: err.message});
   }
-};
+}
 
-const getDataById = async (req, res) => {
+export const getDataById = async (req, res) => {
   try {
-    const data = await ResearcherModel.findById(req.params.id);
+    const data = await researchers.findById(req.params.id);
     if (data == null) {
       return res.status(404).json({ message: "Cannot find data" });
     }
@@ -33,9 +35,9 @@ const getDataById = async (req, res) => {
   }
 };
 
-const updateData = async (req, res) => {
+export const updateData = async (req, res) => {
   try {
-    const data = await ResearcherModel.findById(req.params.id);
+    const data = await researchers.findById(req.params.id);
     if (data == null) {
       return res.status(404).json({ message: "Cannot find data" });
     }
@@ -48,9 +50,9 @@ const updateData = async (req, res) => {
   }
 };
 
-const deleteData = async (req, res) => {
+export const deleteData = async (req, res) => {
   try {
-    const data = await ResearcherModel.findById(req.params.id);
+    const data = await researchers.findById(req.params.id);
     if (data == null) {
       return res.status(404).json({ message: "Cannot find data" });
     }
@@ -59,12 +61,4 @@ const deleteData = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
-
-module.exports = {
-  getAllData,
-  createData,
-  getDataById,
-  updateData,
-  deleteData,
 };

@@ -5,7 +5,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
-import researcherRoutes from "../backend/routes/researcherRoute.js";
+import researcherRoutes from "./routes/researcherRoute.js";
 
 // import cors from 'cors';
 
@@ -23,11 +23,12 @@ const app = express()
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(bodyParser.json());
+app.use(express.urlencoded({extended:false}));
 
 // routes
 
 app.use('/api/v1/auth', authRoutes);
-app.use('/api/researchers', researcherRoutes);
+app.use('/api/researchers',researcherRoutes);
 
 // api
 
