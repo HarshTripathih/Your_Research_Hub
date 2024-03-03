@@ -1,163 +1,71 @@
 import mongoose from "mongoose";
 
-const ResearcherSearchSchema = new mongoose.Schema(
-  {
-    searchMetadata: {
-      id: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      status: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      jsonEndpoint: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-      },
-      processedAt: {
-        type: Date,
-        default: Date.now,
-      },
-      googleScholarUrl: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      rawHtmlFile: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      totalTimeTaken: {
-        type: Number,
-        default: 0,
-      },
-    },
-    searchParameters: {
-      engine: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-      q: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-    },
-    searchInformation: {
-      totalResults: {
-        type: Number,
-        default: 0,
-      },
-      timeTakenDisplayed: {
-        type: Number,
-        default: 0,
-      },
-      queryDisplayed: {
-        type: String,
-        required: true,
-        trim: true,
-      },
-    },
-    organicResults: [
-      {
-        position: {
-          type: Number,
-          required: true,
-        },
-        title: {
-          type: String,
-          required: true,
-          trim: true,
-        },
-        resultId: {
-          type: String,
-          required: true,
-          trim: true,
-        },
-        link: {
-          type: String,
-          required: true,
-          trim: true,
-        },
-        snippet: {
-          type: String,
-          required: true,
-          trim: true,
-        },
-        publicationInfo: {
-          summary: {
-            type: String,
-            trim: true,
-          },
-        },
-        inlineLinks: {
-          serpapiCiteLink: {
-            type: String,
-            trim: true,
-          },
-          citedBy: {
-            total: {
-              type: Number,
-              default: 0,
-            },
-            link: {
-              type: String,
-              trim: true,
-            },
-            citesId: {
-              type: String,
-              trim: true,
-            },
-            serpapiScholarLink: {
-              type: String,
-              trim: true,
-            },
-          },
-          relatedPagesLink: {
-            type: String,
-            trim: true,
-          },
-          serpapiRelatedPagesLink: {
-            type: String,
-            trim: true,
-          },
-          versions: {
-            total: {
-              type: Number,
-              default: 0,
-            },
-            link: {
-              type: String,
-              trim: true,
-            },
-            clusterId: {
-              type: String,
-              trim: true,
-            },
-            serpapiScholarLink: {
-              type: String,
-              trim: true,
-            },
-          },
-          cachedPageLink: {
-            type: String,
-            trim: true,
-          },
-        },
-      },
-    ],
+const ResearcherSearchSchema = new mongoose.Schema({
+  searchInformation: {
+    searchTime: Number,
+    formattedSearchTime: String,
+    totalResults: Number,
+    formattedTotalResults: String
   },
-  { timestamps: true }
-);
+  context: {
+    title: String,
+    source: String,
+    pageMap: mongoose.Schema.Types.Mixed
+  },
+  relatedSearch: [{
+    title: String,
+    pixelsToCorrection: Number,
+    value: String
+  }],
+  parseResults: [{
+    scholar: {
+      url: String,
+      title: String,
+      snippet: String,
+      citation: {
+        article: {
+          author: [String],
+          title: String,
+          conferenceTitle: String,
+          publisher: String,
+          pageStart: Number,
+          pageEnd: Number,
+          volume: String,
+          issue: String,
+          year: Number,
+          month: String,
+          edition: String,
+          entryId: String,
+          pdf: {
+            url: String,
+            mime: String
+          }
+        },
+        citation: String,
+        citationId: String
+      },
+      cites: {
+        count: Number,
+        url: String
+      },
+      url: String,
+      author: {
+        name: String,
+        url: String,
+        emails: [String]
+      },
+      clusters: [{
+        clusterId: String,
+        url: String,
+        heading: String
+      }],
+      plus: {
+        url: String,
+        authorship: String,
+        html: String
+      }
+    }
+  }]
+});
 
 export default mongoose.model('Researchers', ResearcherSearchSchema);
