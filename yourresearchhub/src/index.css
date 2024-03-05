@@ -126,6 +126,30 @@ code {
   margin-top: -30vh
 }
 
+
+.footer {
+  color: rgb(239, 233, 233);
+  padding: 25px;
+  background: #000000;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right,
+      #ffffff,
+      #000000);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #626161, #000000);
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.footer a:hover {
+  color: #ffefba;
+  border-bottom: 1px solid #ffefba;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

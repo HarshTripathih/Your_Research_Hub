@@ -3,6 +3,7 @@ import { Bio } from './index.jsx';
 
 const About = () => {
   return (
+    <>
     <div className='m-10'>
       <h1 class="text-6xl title-font font-medium mb-1 py-16">About Us</h1>
       <section class="body-font overflow-hidden">
@@ -74,6 +75,7 @@ const About = () => {
         </div>
       </section>
     </div>
+    </>
   )
 }
 export default About
