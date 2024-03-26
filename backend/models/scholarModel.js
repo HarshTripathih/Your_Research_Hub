@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ResearcherSchema = new mongoose.Schema(
+const ScholarSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -11,7 +11,7 @@ const ResearcherSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    position: {
+    title: {
       type: String,
       required: true,
     },
@@ -37,15 +37,12 @@ const ResearcherSchema = new mongoose.Schema(
       {
         degree: {
           type: String,
-          required: true,
         },
         institution: {
           type: String,
-          required: true,
         },
         graduationYear: {
           type: Number,
-          required: true,
         },
       },
     ],
@@ -65,38 +62,16 @@ const ResearcherSchema = new mongoose.Schema(
         },
       },
     ],
-    researchProjects: [
-      {
-        title: {
-          type: String,
-          required: true,
-        },
-        description: {
-          type: String,
-          required: true,
-        },
-        startDate: {
-          type: Date,
-          required: true,
-        },
-        endDate: {
-          type: Date,
-        },
-      },
-    ],
     professionalExperience: [
       {
         position: {
           type: String,
-          required: true,
         },
         organization: {
           type: String,
-          required: true,
         },
         startDate: {
           type: Date,
-          required: true,
         },
         endDate: {
           type: Date,
@@ -107,11 +82,9 @@ const ResearcherSchema = new mongoose.Schema(
       {
         title: {
           type: String,
-          required: true,
         },
         year: {
           type: Number,
-          required: true,
         },
       },
     ],
@@ -120,7 +93,6 @@ const ResearcherSchema = new mongoose.Schema(
     },
     skills: {
       type: [String],
-      required: true,
     },
     socialMediaProfiles: {
       linkedIn: {
@@ -129,6 +101,7 @@ const ResearcherSchema = new mongoose.Schema(
       researchGate: {
         type: String,
       },
+      // Add more social media profiles as needed
     },
     photo: {
       type: String,
@@ -137,4 +110,5 @@ const ResearcherSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Researchers", ResearcherSchema);
+export default mongoose.model("Scholars", ScholarSchema);
+  
