@@ -6,6 +6,9 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
 import researcherRoutes from "./routes/researcherRoute.js";
+import researchers from "../backend/models/researcherModel.js";
+import fs from 'fs';
+import { error } from "console";
 
 // import cors from 'cors';
 
@@ -16,6 +19,15 @@ connectDB();
 
 const app = express()
 
+//read json file
+const jsonData = fs.readFileSync('researchers.json' , 'utf-8');
+const data = JSON.parse(jsonData);
+// console.log(data);
+
+//insert json data into mongodb
+// researchers.insertMany(data)
+// .then(()=>console.log('Data inserted successfully'))
+// .catch((err)=>console.error('Error in inserting data', err));
 
 // middleware
 

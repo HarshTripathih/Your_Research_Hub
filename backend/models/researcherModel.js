@@ -48,11 +48,15 @@ const ResearcherSearchSchema = new mongoose.Schema({
         count: Number,
         url: String
       },
-      url: String,
       author: {
         name: String,
         url: String,
-        emails: [String]
+        email: {
+          type: String,
+          unique: true,
+          required: true,
+          trim: true
+        }
       },
       clusters: [{
         clusterId: String,

@@ -1,6 +1,6 @@
 import researchers from "../models/researcherModel.js";
 
-
+//get all researchers
 export const getAllData = async (req, res) => {
   try {
     const data = await researchers.find({});
@@ -9,6 +9,7 @@ export const getAllData = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 
 //Create a new data 
@@ -23,6 +24,7 @@ export const createData = async (req,res) => {
   }
 }
 
+//get all researchers by id
 export const getDataById = async (req, res) => {
   try {
     const data = await researchers.findById(req.params.id);
@@ -35,30 +37,32 @@ export const getDataById = async (req, res) => {
   }
 };
 
+//update researcher detail by using id
 export const updateData = async (req, res) => {
   try {
-    const data = await researchers.findById(req.params.id);
-    if (data == null) {
-      return res.status(404).json({ message: "Cannot find data" });
+    const data = await researchers.findByIdAndUpdate(req.params.id ,req.body , {new : true});
+    if(!data){
+      return res.status(404).send({message :'researcher not found with this id ' + req.params.id});
     }
-
-    Object.assign(data, req.body);
-    const updatedData = await data.save();
-    res.json(updatedData);
+    res.json(data);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
 };
 
+
+//delete researcher using id
 export const deleteData = async (req, res) => {
   try {
-    const data = await researchers.findById(req.params.id);
-    if (data == null) {
+    const data = await researchers.findByIdAndDelete(req.params.id);
+    if (!data) {
       return res.status(404).json({ message: "Cannot find data" });
     }
-    await data.remove();
     res.json({ message: "Deleted data" });
   } catch (error) {
+    if (error.kind === 'ObjectId') {
+      return res.status(404).send({ message: 'Researcher not found with this id ' + req.params.id });
+    }
     res.status(500).json({ message: error.message });
   }
 };
