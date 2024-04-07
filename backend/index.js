@@ -6,7 +6,9 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoute.js";
 import researcherRoutes from "./routes/researcherRoute.js";
+import scholarRoutes from "./routes/scholarRoute.js";
 import researchers from "../backend/models/researcherModel.js";
+
 import fs from 'fs';
 import { error } from "console";
 
@@ -41,7 +43,7 @@ app.use(express.urlencoded({extended:false}));
 
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/researchers',researcherRoutes);
-app.use('/api/v1/scholars', scholarRoutes);
+app.use('/api/v1/scholars',scholarRoutes);
 
 // api
 

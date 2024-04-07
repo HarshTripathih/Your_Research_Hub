@@ -1,4 +1,4 @@
-import Scholar from "../models/Scholar"; // Import the Scholar model
+import Scholars from '../models/scholarModel.js';
 
 export const updateScholarProfileController = async (req, res) => {
   try {
@@ -19,10 +19,10 @@ export const updateScholarProfileController = async (req, res) => {
     } = req.body;
 
     // Find the scholar by their user ID
-    const scholar = await Scholar.findById(req.user._id);
+    const scholar = await Scholars.findById(req.user._id);
 
     // Update the scholar's profile fields based on the provided data
-    const updatedScholar = await Scholar.findByIdAndUpdate(
+    const updatedScholar = await Scholars.findByIdAndUpdate(
       req.user._id,
       {
         name: name || scholar.name,

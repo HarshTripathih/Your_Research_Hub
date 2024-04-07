@@ -1,9 +1,10 @@
-import { updateScholarProfileController } from "../controllers/scholarController";
-import { requireSignIn } from "../middlewares/authMiddleware";
-
-
-
+import express from 'express';
+import { requireSignIn }  from '../middlewares/authmiddleware.js'
+import { updateScholarProfileController } from '../controllers/scholarController.js'
 const router = express.Router();
+
+
+
 
 
 

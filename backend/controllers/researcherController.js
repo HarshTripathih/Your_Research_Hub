@@ -1,4 +1,4 @@
-import researchers from "../models/researcherModel.js";
+import researchers from '../models/researcherModel.js';
 
 //get all researchers
 export const getAllData = async (req, res) => {

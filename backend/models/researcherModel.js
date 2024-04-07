@@ -16,9 +16,11 @@ const ResearcherSchema = new mongoose.Schema({
   },
   contact: {
     email: {
-      type: String,
-      required: true,
-      unique: true,
+      type: String, 
+      require: true, 
+      index:true, 
+      unique:true,
+      sparse:true,
     },
     phone: {
       type: String,

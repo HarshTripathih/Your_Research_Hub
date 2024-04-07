@@ -1,86 +1,84 @@
-
-  {
-    "searchInformation": {
-      "searchTime": 1.23,
-      "formattedSearchTime": "1.23 seconds",
-      "totalResults": 100,
-      "formattedTotalResults": "100"
+{
+  "name": "Alice Smith",
+  "affiliation": "XYZ Research Institute",
+  "position": "Senior Researcher",
+  "contact": {
+    "email": "alice.smith@example.com",
+    "phone": "+1234567890",
+    "website": "https://www.alicesmith.com"
+  },
+  "researchInterests": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Data Science"
+  ],
+  "education": [
+    {
+      "degree": "PhD in Computer Science",
+      "institution": "University of ABC",
+      "graduationYear": 2012
     },
-    "context": {
-      "title": "Context Title",
-      "source": "Context Source",
-      "pageMap": {
-        "key1": "value1",
-        "key2": "value2"
-      }
+    {
+      "degree": "Master of Science",
+      "institution": "University of DEF",
+      "graduationYear": 2009
+    }
+  ],
+  "publications": [
+    {
+      "title": "Advances in AI Algorithms",
+      "type": "Journal",
+      "year": 2021
     },
-    "relatedSearch": [
-      {
-        "title": "Related Search 1",
-        "pixelsToCorrection": 10,
-        "value": "Related Value 1"
-      },
-      {
-        "title": "Related Search 2",
-        "pixelsToCorrection": 20,
-        "value": "Related Value 2"
-      }
-    ],
-    "parseResults": [
-      {
-        "scholar": {
-          "url": "https://example.com",
-          "title": "Paper Title",
-          "snippet": "Paper Snippet",
-          "citation": {
-            "article": {
-              "author": ["Author 1", "Author 2"],
-              "title": "Article Title",
-              "conferenceTitle": "Conference Title",
-              "publisher": "Publisher",
-              "pageStart": 1,
-              "pageEnd": 10,
-              "volume": "Volume 1",
-              "issue": "Issue 1",
-              "year": 2022,
-              "month": "January",
-              "edition": "Edition 1",
-              "entryId": "1234",
-              "pdf": {
-                "url": "https://example.com/paper.pdf",
-                "mime": "application/pdf"
-              }
-            },
-            "citation": "Citation Text",
-            "citationId": "5678"
-          },
-          "cites": {
-            "count": 5,
-            "url": "https://example.com/citations"
-          },
-          "author": {
-            "name": "John Doe",
-            "url": "https://example.com/author",
-            "email": "john.doe@example.com"
-          },
-          "clusters": [
-            {
-              "clusterId": "cluster1",
-              "url": "https://example.com/cluster1",
-              "heading": "Cluster 1 Heading"
-            },
-            {
-              "clusterId": "cluster2",
-              "url": "https://example.com/cluster2",
-              "heading": "Cluster 2 Heading"
-            }
-          ],
-          "plus": {
-            "url": "https://example.com/plus",
-            "authorship": "Authorship Text",
-            "html": "<p>HTML content</p>"
-          }
-        }
-      }
-    ]
-  }
+    {
+      "title": "Data Science for Healthcare",
+      "type": "Conference",
+      "year": 2020
+    }
+  ],
+  "researchProjects": [
+    {
+      "title": "AI-driven Robotics",
+      "description": "Developing robotic systems using AI techniques.",
+      "startDate": "2019-01-01",
+      "endDate": null
+    },
+    {
+      "title": "Deep Learning Applications",
+      "description": "Exploring deep learning applications in image recognition.",
+      "startDate": "2018-05-15",
+      "endDate": "2019-12-31"
+    }
+  ],
+  "professionalExperience": [
+    {
+      "position": "Lead Data Scientist",
+      "organization": "Tech Innovations Inc.",
+      "startDate": "2016-03-01",
+      "endDate": null
+    },
+    {
+      "position": "Data Analyst",
+      "organization": "Data Solutions Co.",
+      "startDate": "2013-06-15",
+      "endDate": "2016-02-28"
+    }
+  ],
+  "honorsAndAwards": [
+    {
+      "title": "Best Research Paper Award",
+      "year": 2020
+    },
+    {
+      "title": "Outstanding Scientist Award",
+      "year": 2018
+    }
+  ],
+  "professionalMemberships": ["IEEE", "ACM", "AAAI"],
+  "skills": ["Python", "Machine Learning", "Data Analysis"],
+  "socialMediaProfiles": {
+    "linkedIn": "https://www.linkedin.com/in/alicesmith",
+    "researchGate": "https://www.researchgate.net/profile/Alice-Smith"
+  },
+  "photo": "https://www.example.com/alicesmith.jpg"
+}
