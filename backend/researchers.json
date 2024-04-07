@@ -1,0 +1,86 @@
+
+  {
+    "searchInformation": {
+      "searchTime": 1.23,
+      "formattedSearchTime": "1.23 seconds",
+      "totalResults": 100,
+      "formattedTotalResults": "100"
+    },
+    "context": {
+      "title": "Context Title",
+      "source": "Context Source",
+      "pageMap": {
+        "key1": "value1",
+        "key2": "value2"
+      }
+    },
+    "relatedSearch": [
+      {
+        "title": "Related Search 1",
+        "pixelsToCorrection": 10,
+        "value": "Related Value 1"
+      },
+      {
+        "title": "Related Search 2",
+        "pixelsToCorrection": 20,
+        "value": "Related Value 2"
+      }
+    ],
+    "parseResults": [
+      {
+        "scholar": {
+          "url": "https://example.com",
+          "title": "Paper Title",
+          "snippet": "Paper Snippet",
+          "citation": {
+            "article": {
+              "author": ["Author 1", "Author 2"],
+              "title": "Article Title",
+              "conferenceTitle": "Conference Title",
+              "publisher": "Publisher",
+              "pageStart": 1,
+              "pageEnd": 10,
+              "volume": "Volume 1",
+              "issue": "Issue 1",
+              "year": 2022,
+              "month": "January",
+              "edition": "Edition 1",
+              "entryId": "1234",
+              "pdf": {
+                "url": "https://example.com/paper.pdf",
+                "mime": "application/pdf"
+              }
+            },
+            "citation": "Citation Text",
+            "citationId": "5678"
+          },
+          "cites": {
+            "count": 5,
+            "url": "https://example.com/citations"
+          },
+          "author": {
+            "name": "John Doe",
+            "url": "https://example.com/author",
+            "email": "john.doe@example.com"
+          },
+          "clusters": [
+            {
+              "clusterId": "cluster1",
+              "url": "https://example.com/cluster1",
+              "heading": "Cluster 1 Heading"
+            },
+            {
+              "clusterId": "cluster2",
+              "url": "https://example.com/cluster2",
+              "heading": "Cluster 2 Heading"
+            }
+          ],
+          "plus": {
+            "url": "https://example.com/plus",
+            "authorship": "Authorship Text",
+            "html": "<p>HTML content</p>"
+          }
+        }
+      }
+    ]
+  }
