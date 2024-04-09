@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { trusted } from "mongoose";
 
 const ResearcherSchema = new mongoose.Schema({
   name: {
@@ -18,9 +18,7 @@ const ResearcherSchema = new mongoose.Schema({
     email: {
       type: String, 
       require: true, 
-      index:true, 
       unique:true,
-      sparse:true,
     },
     phone: {
       type: String,
@@ -134,6 +132,10 @@ const ResearcherSchema = new mongoose.Schema({
   photo: {
     type: String,
   },
-});
+},
+{
+  timestamps: true,
+}
+);
 
 export default mongoose.model("Researcher", ResearcherSchema);

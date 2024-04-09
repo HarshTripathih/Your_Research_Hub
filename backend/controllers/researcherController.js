@@ -24,6 +24,7 @@ export const createData = async (req,res) => {
   }
 }
 
+
 //get all researchers by id
 export const getDataById = async (req, res) => {
   try {
