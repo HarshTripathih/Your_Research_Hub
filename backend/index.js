@@ -10,7 +10,7 @@ import scholarRoutes from "./routes/scholarRoute.js";
 import researchers from "../backend/models/researcherModel.js";
 
 import fs from 'fs';
-import { error } from "console";
+
 
 // import cors from 'cors';
 
