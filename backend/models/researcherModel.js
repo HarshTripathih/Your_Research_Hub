@@ -1,71 +1,141 @@
-import mongoose from "mongoose";
+import mongoose, { trusted } from "mongoose";
 
-const ResearcherSearchSchema = new mongoose.Schema({
-  searchInformation: {
-    searchTime: Number,
-    formattedSearchTime: String,
-    totalResults: Number,
-    formattedTotalResults: String
+const ResearcherSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
   },
-  context: {
-    title: String,
-    source: String,
-    pageMap: mongoose.Schema.Types.Mixed
+  affiliation: {
+    type: String,
+    required: true,
   },
-  relatedSearch: [{
-    title: String,
-    pixelsToCorrection: Number,
-    value: String
-  }],
-  parseResults: [{
-    scholar: {
-      url: String,
-      title: String,
-      snippet: String,
-      citation: {
-        article: {
-          author: [String],
-          title: String,
-          conferenceTitle: String,
-          publisher: String,
-          pageStart: Number,
-          pageEnd: Number,
-          volume: String,
-          issue: String,
-          year: Number,
-          month: String,
-          edition: String,
-          entryId: String,
-          pdf: {
-            url: String,
-            mime: String
-          }
-        },
-        citation: String,
-        citationId: String
+  position: {
+    type: String,
+    required: true,
+  },
+  contact: {
+    email: {
+      type: String, 
+      require: true, 
+      unique:true,
+    },
+    phone: {
+      type: String,
+      required: true,
+    },
+    website: {
+      type: String,
+    },
+  },
+  researchInterests: {
+    type: [String],
+    required: true,
+  },
+  education: [
+    {
+      degree: {
+        type: String,
+        required: true,
       },
-      cites: {
-        count: Number,
-        url: String
+      institution: {
+        type: String,
+        required: true,
       },
-      url: String,
-      author: {
-        name: String,
-        url: String,
-        emails: [String]
+      graduationYear: {
+        type: Number,
+        required: true,
       },
-      clusters: [{
-        clusterId: String,
-        url: String,
-        heading: String
-      }],
-      plus: {
-        url: String,
-        authorship: String,
-        html: String
-      }
-    }
-  }]
-});
+    },
+  ],
+  publications: [
+    {
+      title: {
+        type: String,
+        required: true,
+      },
+      type: {
+        type: String,
+        required: true,
+      },
+      year: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
+  researchProjects: [
+    {
+      title: {
+        type: String,
+        required: true,
+      },
+      description: {
+        type: String,
+        required: true,
+      },
+      startDate: {
+        type: Date,
+        required: true,
+      },
+      endDate: {
+        type: Date,
+      },
+    },
+  ],
+  professionalExperience: [
+    {
+      position: {
+        type: String,
+        required: true,
+      },
+      organization: {
+        type: String,
+        required: true,
+      },
+      startDate: {
+        type: Date,
+        required: true,
+      },
+      endDate: {
+        type: Date,
+      },
+    },
+  ],
+  honorsAndAwards: [
+    {
+      title: {
+        type: String,
+        required: true,
+      },
+      year: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
+  professionalMemberships: {
+    type: [String],
+  },
+  skills: {
+    type: [String],
+    required: true,
+  },
+  socialMediaProfiles: {
+    linkedIn: {
+      type: String,
+    },
+    researchGate: {
+      type: String,
+    },
+  },
+  photo: {
+    type: String,
+  },
+},
+{
+  timestamps: true,
+}
+);
 
-export default mongoose.model('Researchers', ResearcherSearchSchema);
+export default mongoose.model("Researcher", ResearcherSchema);
