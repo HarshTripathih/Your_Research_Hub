@@ -9,7 +9,7 @@ const Contact = () => {
   const form = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_av65beb', 'template_5eqebsy', form.current, 'Q5BbDrjkHmiUpdaxS')
+    emailjs.sendForm('service_vsb9mzk', 'template_ugy9tfu', form.current, '8ZVMaKbqNI0_f0LwV')
       .then((result) => {
         setOpen(true);
         console.log(result.text);
@@ -33,8 +33,8 @@ const Contact = () => {
           <button class='ContactButton bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded' type="submit">Send</button>
         </form>
         <div class="ContactInfo p-2 w-full max-w-lg pt-8 mt-8 border-t border-gray-200 text-center">
-          <a class="text-indigo-500 block mb-2">example@email.com</a>
-          <p class="leading-normal my-2">49 Smith St.<br />Saint Cloud, MN 56301</p>
+          <p>Our Email</p>
+          <a href = "mailto:squarecollabofficial@gmail.com" class="text-indigo-500 block mb-2">squarecollabofficial@gmail.com</a>
         </div>
         <Snackbar
           open={open}

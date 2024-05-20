@@ -19,7 +19,7 @@ const About = () => {
       </section>
       <section class="body-font">
         <div class="container px-5 py-24 mx-auto">
-          <h1 class="text-3xl font-medium title-font mb-12 text-center">Thoughts</h1>
+          <h1 class="text-3xl font-medium title-font mb-12 text-center">Thoughts We Admire</h1>
           <div class="flex flex-wrap -m-4">
             <div class="p-4 md:w-1/2 w-full">
               <div class="h-full bg-gray-100 p-8 rounded">
@@ -55,8 +55,7 @@ const About = () => {
       <section class="body-font">
         <div class="container px-5 py-12 mx-auto">
           <div class="flex flex-col text-center w-full mb-20">
-            <h1 class="text-3xl font-medium title-font mb-4 tracking-widest">OUR TEAM</h1>
-            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">With over 10 years of combined experience, we've got a well seasoned team at the helm.</p>
+            <h1 class="text-5xl font-medium title-font mb-4 tracking-widest">OUR TEAM</h1>
           </div>
           <div class='flex flex-wrap'>
             {Bio.map((person) => (
@@ -65,7 +64,6 @@ const About = () => {
                   <img class="flex-shrink-0 rounded-lg w-full sm:w-48 h-auto object-cover object-center sm:mb-0 mb-4" src={person.image} alt={person.name} />
                   <div class="flex-grow sm:pl-8">
                     <h2 class="title-font font-medium text-lg text-gray-900">{person.name}</h2>
-                    <h3 class="mb-3">{person.roles}</h3>
                     <p class="mb-4">{person.description}</p>
                   </div>
                 </div>
